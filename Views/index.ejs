@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EstimationApp</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Estimate the Facts of a Name</h1>
+        </div>
+
+        <div class="container">
+            <form id="myForm" method="post">
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" placeholder="Enter name.." name="name"/>
+                <input id="submit" type="submit" value="Submit" formaction="/submit-name">
+            </form>
+
+            <div class="response">
+                <% if (content && content.name && content.age && content.gender && content.country) { %>
+                    <p>
+                      <%= content.name %> is <%= content.age %> years old <br>
+                      Gender: <%= content.gender %> <br>
+                      Country: <%= content.country %>
+                    </p>
+                  <% } else { %>
+                    <%= content %>
+                  <% } %>
+            </div>
+        </div>
+    </body>
+</html>
