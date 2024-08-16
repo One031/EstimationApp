@@ -95,6 +95,14 @@ input[type="submit"] {
 
 /* Media Queries for Mobile Devices */
 @media (max-width: 480px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0; 
+    }
+
     .heading {
         font-size: 20px;
         width: 100%;
