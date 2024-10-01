@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Sets the character encoding and viewport for responsive design -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title of the web page -->
         <title>EstimationApp</title>
+        <!-- Link to external stylesheet (main.css) for styling the page -->
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <!-- Header section for the main title of the application -->
         <div class="heading">
             <h1>Estimate the Facts of a Name</h1>
         </div>
 
+        <!-- Main container for the form and response -->
         <div class="container">
+            <!-- Form section for submitting a name -->
             <form id="myForm" method="post">
+                <!-- Label and input field for the name -->
                 <label for="nameInput">Name:</label>
+                <!-- Text input for user to enter a name -->
                 <input type="text" id="nameInput" placeholder="Enter name.." name="name"/>
+                <!-- Submit button to send the form data (formaction specifies the action endpoint) -->
                 <input id="submit" type="submit" value="Submit" formaction="/submit-name">
             </form>
 
+            <!-- Section for displaying the response based on the submitted name -->
             <div class="response">
+                <!-- Conditional statement: If the server returns content with name, age, gender, and country, display it -->
                 <% if (content && content.name && content.age && content.gender && content.country) { %>
                     <p>
+                      <!-- Display the name, age, gender, and country from the content -->
                       <%= content.name %> is <%= content.age %> years old <br>
                       Gender: <%= content.gender %> <br>
                       Country: <%= content.country %>
                     </p>
-                  <% } else { %>
+                <!-- If the content doesn't contain the expected data, just display the content as is -->
+                <% } else { %>
                     <%= content %>
-                  <% } %>
+                <% } %>
             </div>
         </div>
     </body>
